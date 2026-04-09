@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
     const [from, setForm] = useState({ name: '', email: '', password: '', confirmPassword: '', role: '' });
-    const [error, srtError] = useState('');
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -14,14 +14,14 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (from.password !== from.confirmPassword) {
-            return srtError('Passwords do not match');
+            return setError('Passwords do not match');
         }
         try {   
-            await axios.post('https://localhost:5000/api/auth/signup', from);
+            await axios.post('http://localhost:8000/api/auth/signup', from);
             alert('Signup successful! Please login.');
             navigate('/login');
         } catch (error) {
-            srtError(error.response?.data?.message || 'Signup failed');
+            setError(error.response?.data?.message || 'Signup failed');
         }
     };
 

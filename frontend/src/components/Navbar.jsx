@@ -11,12 +11,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav style={{ padding: '10px 20px', backgroundColor: '#333', color: '#fff' ,display: 'flex', justifyContent: 'space-between' }}>
-        <h3>Code Studio ATS</h3>
+    <nav style={{ padding: '15px 30px', backgroundColor: 'linear-gradient(to right, #1a1a2e, #16213e)', color: '#570505' ,display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+        <h3 style={
+          {margin: 0}}>Code Studio ATS</h3>
         {user && (
             <div>
                 <span>Welcome, {user.name} | Role: ({user.role})</span>
-                <button onClick={handleLogout} style={{ marginLeft: '15px', padding: '5px 10px' }}>Logout</button>
+                <button onClick={handleLogout} style={{ marginLeft: '15px', padding: '8px 16px', backgroundColor: '#240309', border: 'none', color: '#f9f7f7', cursor: 'pointer' }}>Logout</button>
             </div>
         )}
     </nav>
